@@ -36,7 +36,7 @@ public class StudentResource {
 	private static final Logger logger = Logger.getLogger("StudentResource");
 	
 	@GET
-	@Path("/getStudent")
+	@Path("/json")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Student getStudent(@QueryParam("id") String albumNo) {
 		Student s = new Student();
@@ -87,6 +87,12 @@ public class StudentResource {
 		 return Response.ok(imageData).build();
 
 		//return Response.ok(new ByteArrayInputStream(imageData)).build();
+	}
+	@GET
+	@Path("/text")
+	@Produces("text/plain")
+	public String getText(){
+		return "Tekst zwracam";
 	}
 
 }
